@@ -1,8 +1,5 @@
-@extends('layouts.app')
-
-@section('content')
-<div class="container">
-    <div class="row">
+<template>
+	<div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading"> <i class="fa fa-user"></i> Daftar E-Office</div>
@@ -12,14 +9,14 @@
                         {{ csrf_field() }}
 
                         <div class="form-group">
-                            <label for="name" class="col-md-2 control-label">NIP</label>
-                            <div class="col-md-9">
-                                <input id="name" name="nip" type="text" class="form-control" placeholder="Masukkan Nip" value="{{ session('nip') != null ? session('nip') : '' }}" >
+                            <label for="name" class="col-md-3 control-label">NIP</label>
+                            <div class="col-md-6">
+                                <input id="name" name="nip" type="text" class="form-control" placeholder="Masukkan Nip" >
                                 <i>*) NIP selanjutnya akan digunakan untuk login</i>
                             </div>
                         </div>
 
-                        @if(session('nip') != null )
+                        @if(session('status'))
                             <div class="alert alert-danger" role="alert">
                               <strong>Maaf</strong> NIP tidak terdaftar di simpeg, coba nip baru
                             </div>
@@ -38,5 +35,4 @@
             </div>
         </div>
     </div>
-</div>
-@endsection
+</template>

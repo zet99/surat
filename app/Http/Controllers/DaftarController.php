@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Http\Requests\userRequest;
 
 class DaftarController extends Controller
 {
@@ -24,12 +25,17 @@ class DaftarController extends Controller
                     $pegawai = $data->data;
                     return view('pendaftaran', compact('pegawai'));    
                 }else{
-                    return redirect('daftar');
+                    return redirect('daftar')->with('nip', $request->get('nip'));
                 }
             } catch (Exception $e) {
                 return redirect('daftar');
             }
             
         }
+    }
+    public function daftar(userRequest $request)
+    {
+        // User::create( );
+        return redirect('login');
     }
 }

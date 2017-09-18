@@ -1,5 +1,4 @@
 <?php
-use App\User;
 
 Route::get('/', function () {
     return view('welcome');
@@ -8,6 +7,7 @@ Route::get('/', function () {
 Route::get('daftar', function(){
 	return view('daftar');
 });
+Route::post('daftar', 'DaftarController@daftar');
 
 Route::post('getpegawai', 'DaftarController@getsimpeg');
 
